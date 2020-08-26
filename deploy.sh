@@ -12,4 +12,3 @@ printf "\033[0;32mApplying updates to GitLab...\033[0m\n"
 # change baseURL to satherws.gitlab.io/satherc_tech, commit then return baseURL to original state
 git add . && git commit -m "firebase deployment #$n"
 git push -u origin master
-
