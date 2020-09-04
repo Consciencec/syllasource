@@ -5,17 +5,34 @@ This website is using the [Pelican static site generator](https://blog.getpelica
 
 
 **How to run in development**
-Apply content and theme directory and start dev server.
+Apply content and theme directory and start dev server. You have to run these commands each time you make a change to your theme or content (which is slightly annoying).
 `pelican content -s pelicanconf.py -t ../attila`
 `pelican -l`
 
-**Create new post**
-`pelican `
+**Quick Post Notes**
+Local LAMP Stack development in a Debian Linux subsystem for Windows
+1. Install a Debian based Linux distro from the Windows store.
+2. Run the commands below.
+```
+sudo apt-get install apache2
+sudo apt-get install php
 
-**Run specific piece of content**
-`pelican --write-selected output/testing.html`
-`pelican --auto reload --listen`
+sudo apt-get install wget
+sudo apt-get install gnupg
+sudo apt-get install lsb-release 
 
-**Other useful CLI commands**
-Install a specific theme.
-`pelican-themes -i theme-name-here`
+cd /tmp
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb
+sudo dpkg -i mysql-apt-config*
+sudo apt update
+sudo apt install mysql-server
+
+# select MYSQL 8 and proceed to set root password
+
+```
+
+
+Super quick Windows MYSQL installation, I forget how to do this often.
+1. Download MYSQL installer [64 bit MYSQL installer link](https://dev.mysql.com/downloads/file/?id=496745)
+2. Include pics of your config.
+3. Map exe path `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\MySQL\MySQL Server 8.0`

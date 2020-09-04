@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>Docker LAMP Stack Quick Start</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="/docker-lamp-stack-quick-start.html" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+    <meta name="description" content="Article's Purpose This post is a reminder to myself on how to set up a docker LAMP stack container. I am using docker mainly for local...">
+
+    <meta name="author" content="Consciencec">
+
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Sylla Source"/>
+<meta property="og:title" content="Docker LAMP Stack Quick Start"/>
+<meta property="og:description" content="Article's Purpose This post is a reminder to myself on how to set up a docker LAMP stack container. I am using docker mainly for local..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/docker-lamp-stack-quick-start.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-08-27 14:01:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/consciencec.html">
+<meta property="article:section" content="IT Notes"/>
+<meta property="og:image" content="/static/header2.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Docker LAMP Stack Quick Start",
+  "headline": "Docker LAMP Stack Quick Start",
+  "datePublished": "2020-08-27 14:01:00-04:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Consciencec",
+    "url": "/author/consciencec.html"
+  },
+  "image": "/static/header2.jpg",
+  "url": "/docker-lamp-stack-quick-start.html",
+  "description": "Article's Purpose This post is a reminder to myself on how to set up a docker LAMP stack container. I am using docker mainly for local..."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Article Categories</p>
+    <ul>
+
+                  <li class="nav-it-notes active" role="presentation"><a href="/category/it-notes.html">IT Notes</a></li>
+                  <li role="presentation"><a href="/category/random-posts.html">Random Posts</a></li>
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span class="blog-logo">
+                <a href="/"><img src="static/sylla_logo.png" alt="Blog Logo" /></a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <!-- TODO: csather, properly check if profile pic is set 
+        <img src="static/about.gif" alt="profile" class="profile-pic">
+        -->
+        <h1 class="post-title">Docker LAMP Stack Quick Start</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="/author/consciencec.html">Consciencec</a>
+            | <time datetime="Thu 27 August 2020">Thu 27 August 2020</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('/static/header2.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <h4>Article's Purpose</h4>
+<p>This post is a reminder to myself on how to set up a docker LAMP stack container. I am using docker mainly for local development. I am tired of using web server desktop software solutions like XAMPP, AMPPS and MAMP. I want my local development to be similar to my production development. Plus containerization is a good skill to put on your resume.</p>
+<h4>PHP &amp; Apache2 Set Up</h4>
+<p>Create below file structure for your website.</p>
+<div class="highlight"><pre><span></span><span class="err">docker-php</span>
+<span class="err">|___src</span>
+<span class="err">|   |___index.php</span>
+<span class="err">|___Dockerfile</span>
+</pre></div>
+
+
+<p>Next add the below code to the <code>Dockerfile</code></p>
+<div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="n">php</span><span class="p">:</span><span class="mi">7</span><span class="p">.</span><span class="mi">2</span><span class="o">-</span><span class="n">apache</span>
+<span class="n">RUN</span> <span class="n">docker</span><span class="o">-</span><span class="n">php</span><span class="o">-</span><span class="n">ext</span><span class="o">-</span><span class="n">install</span> <span class="n">mysqli</span>
+<span class="n">ENV</span> <span class="n">CI</span><span class="o">=</span><span class="k">true</span>
+<span class="n">ENV</span> <span class="n">PORT</span><span class="o">=</span><span class="mi">3000</span>
+<span class="k">COPY</span> <span class="n">src</span><span class="o">/</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span>
+<span class="n">EXPOSE</span> <span class="mi">80</span>
+
+<span class="o">#</span> <span class="n">TODO</span><span class="p">:</span> <span class="k">Add</span> <span class="n">MYSQL</span> <span class="n">configs</span>
+</pre></div>
+
+
+<p>Lastly run the below two commands to finish creating a container for a basic PHP website.</p>
+<div class="highlight"><pre><span></span><span class="err">docker build -t docker-php .</span>
+<span class="err">docker run -d -p 3000:80 --mount type=bind,source=&quot;$(pwd)/src&quot;,target=/var/www/html docker-php</span>
+</pre></div>
+
+
+<p>If successful a web page <a href="https://kinsta.com/wp-content/uploads/2019/10/phpinfo-page-example.png" target="_blank">that looks like this</a> will be created. Since we've mounted our <code>src</code> directory to our container's <code>/var/www/html</code> directory, we will be able to see local changes applied on page refresh.</p>
+<h4>Sources</h4>
+<ol>
+<li><a href="https://nelkinda.com/blog/apache-php-in-docker/#d11e96">How to mount local PHP changes to a Docker container</a></li>
+<li><a href="https://medium.com/better-programming/setting-up-mysql-database-in-a-docker-d6c69a3e9afe">How to create a MYSQL Docker container</a></li>
+</ol>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Docker LAMP Stack Quick Start&amp;url=/docker-lamp-stack-quick-start.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/docker-lamp-stack-quick-start.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=/docker-lamp-stack-quick-start.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+
+                <div class="clear"></div>
+
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+    <!-- TESTING COMMENTBOX -->
+    <div class="commentbox"></div>
+    <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+    <script>
+      // import commentBox from 'commentbox.io';
+      // or
+      const commentBox = require('commentbox.io');
+      // or if using the CDN, it will be available as a global "commentBox" variable.
+
+      commentBox('5739189425405952-proj');
+    </script>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/theme/js/script.js"></script>
+
+</body>
+</html>

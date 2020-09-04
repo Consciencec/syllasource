@@ -6,7 +6,7 @@ pre  { background: #1d1f21; color: #c5c8c6 }
 
 .hll { background-color: #373b41 }
 .c { color: #969896 } /* Comment */
-.err { color: #cc6666 } /* Error */
+/*.err { color: #cc6666 }  Error */
 .k { color: #b294bb } /* Keyword */
 .l { color: #de935f } /* Literal */
 .n { color: #c5c8c6 } /* Name */
